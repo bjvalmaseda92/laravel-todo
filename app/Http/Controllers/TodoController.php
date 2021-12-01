@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoCreateRequest;
 use App\Models\Todo;
-use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
@@ -31,7 +30,7 @@ class TodoController extends Controller
     }
 
 
-    public function update(Request $request, Todo $todo){
+    public function update(TodoCreateRequest $request, Todo $todo){
         
         $todo->update(['title'=>$request->title]);
         return redirect(route('todo.index'))->with('message','Updated!');
