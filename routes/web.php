@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('todos', [TodoController::class, 'index']);
+Route::get('todos', [TodoController::class, 'index'])->name('todo.index');
 Route::get('todos/create', [TodoController::class, 'create']);
 Route::post('todos/create', [TodoController::class, 'store']);
-Route::get('todos/edit', [TodoController::class, 'edit']);
+Route::get('todos/{todo}/edit', [TodoController::class, 'edit']);
+Route::patch('todos/{todo}/edit', [TodoController::class, 'update'])->name(('todo.update'));
 
 
 Route::get('/', function () {
