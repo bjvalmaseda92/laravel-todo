@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Todos</title>
     <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
 </head>
 <body>
     <div class="text-center pt-10 flex justify-center">
