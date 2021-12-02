@@ -16,16 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::resource('todo', TodoController::class);
-
-
 Route::put('todos/{todo}/complete', [TodoController::class, 'complete'])->name(('todo.complete'));
 Route::delete('todos/{todo}/incomplete', [TodoController::class, 'incomplete'])->name(('todo.incomplete'));
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/user', [UserController::class, 'index']);
 
@@ -34,3 +29,8 @@ Route::post('/upload', [UserController::class, 'uploadAvatar']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
