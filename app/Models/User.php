@@ -48,18 +48,23 @@ class User extends Authenticatable
     //     $this->attributes['password']= bcrypt($password);
     // }
 
-    public static function uploadAvatar($image){    
+    public static function uploadAvatar($image)
+    {
         (new self)->deleteOldImage();
         $filename=$image->getClientOriginalName();
         $image->storeAs('images', $filename, 'public');
-        auth()->user()->update(['avatar'=>$filename]); 
-
+        auth()->user()->update(['avatar'=>$filename]);
     }
 
-    protected function deleteOldImage(){
+    protected function deleteOldImage()
+    {
         if ($this->avatar) {
             Storage::delete('/public/images/'.$this->avatar);
         }
     }
 
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
 }
