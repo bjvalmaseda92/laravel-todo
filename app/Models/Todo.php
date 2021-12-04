@@ -12,4 +12,9 @@ class Todo extends Model
     protected $fillable = ["title", "completed", "description"];
 
     //  protected $guarded
+
+    public function steps()
+    {
+        return $this->hasMany(Step::class);
+    }
 }

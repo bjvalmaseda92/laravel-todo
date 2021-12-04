@@ -27,10 +27,16 @@ class TodoController extends Controller
 
     public function store(TodoCreateRequest $request)
     {
-        auth()
+        $todo = auth()
             ->user()
             ->todos()
             ->create($request->all());
+
+        if ($request->step) {
+            foreach ($request->step as $step) {
+                $todo->steps()->create(["name" => $step]);
+            } # code...
+        }
 
         return redirect(route("todo.index"))->with(
             "message",
