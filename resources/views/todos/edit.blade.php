@@ -20,7 +20,7 @@
         <textarea name="description" class="p-2 rounded border">{{$todo->description}}</textarea>
     </div>
     <div class="py-1">
-        <input type="submit" value="Create" class="p-2 border rounded">
+        <input type="submit" value="Update" class="p-2 border rounded">
     </div>
 </form>
 @endsection
