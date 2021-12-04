@@ -5,9 +5,9 @@
     </div>
 
     @foreach ($steps as $step)
-    <div class='flex justify-center py-2'>
-        <input type="text" name="step[]" class="py-1 border rounded" placeholder="{{'Describe step '.($step)}}">
-        <span class="fas fa-times text-red-500 p-2 cursor-pointer" wire:click="remove({{$loop->index}})">
+    <div class='flex justify-center py-2' wire:key="{{$step}}">
+        <input type="text" name="step[]" class="py-1 border rounded" placeholder="{{'Describe step '.($step+1)}}">
+        <span class="fas fa-times text-red-500 p-2 cursor-pointer" wire:click="remove({{$step}})">
     </div>
     @endforeach
 </div>
