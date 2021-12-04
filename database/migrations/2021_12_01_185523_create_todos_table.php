@@ -14,14 +14,21 @@ class CreateTodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function (Blueprint $table) {
+        Schema::create("todos", function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->foreignIdFor(User::class)->onUpdate('cascade')->onDelete('cascade');
-            $table->boolean('completed')->default(false);
+            $table->string("title");
+            $table->text("description");
+            $table
+                ->foreignIdFor(User::class)
+                ->onUpdate("cascade")
+                ->onDelete("cascade");
+            $table->boolean("completed")->default(false);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table
+                ->foreign("user_id")
+                ->references("id")
+                ->on("users");
         });
     }
 
@@ -32,6 +39,6 @@ class CreateTodosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todos');
+        Schema::dropIfExists("todos");
     }
 }

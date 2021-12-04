@@ -75,4 +75,9 @@ class TodoController extends Controller
             ->back()
             ->with("message", "Task deleted!");
     }
+
+    public function show(Todo $todo)
+    {
+        return view("todos.show", compact("todo"));
+    }
 }
